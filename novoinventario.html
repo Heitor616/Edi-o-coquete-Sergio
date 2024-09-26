@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventário Periódico</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+ 
+
+ @media only screen and (max-width: 320px) {
+    body {
+   font-family: Arial, sans-serif;
+   background-color: #eba3dbf8;
+   margin: 0;
+   padding: 0;
+ }
+
+ 
+
+ h1 {
+   text-align: center;
+   color: white;
+   font-style: italic; 
+ }
+
+ form {
+   margin-top: 20px;
+ }
+
+ .form-group {
+   margin-bottom: 20px;
+   color: #e406b4f8;
+   font-style: italic;
+ }
+
+ label {
+   display: block;
+   font-weight: bold;
+   margin-bottom: 5px;
+ }
+
+ input[type="text"],
+ input[type="number"] {
+   width: 100%;
+   padding: 8px;
+   border: 1px solid #d5006d; 
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+
+ .btn-custom {
+   padding: 10px 20px;
+   border-radius: 4px;
+   margin-right: 5px;
+ }
+
+ .btn-primary {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+ }
+
+ .btn-success {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+ }
+
+ .btn-warning {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+   color: white;
+ }
+
+ .btn-info {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+ }
+
+ .btn-danger {
+   background-color: #e406b4f8;
+   border-color: #e406b4f8;
+ }
+ }
+
+ @media only screen and (min-width: 321px) and (max-width: 600px) {
+    body {
+   font-family: Arial, sans-serif;
+   background-color: #eba3dbf8;
+   margin: 0;
+   padding: 0;
+ }
+
+ 
+
+ h1 {
+   text-align: center;
+   color: white;
+   font-style: italic; 
+ }
+
+ form {
+   margin-top: 20px;
+ }
+
+ .form-group {
+   margin-bottom: 20px;
+   color: #e406b4f8;
+   font-style: italic;
+ }
+
+ label {
+   display: block;
+   font-weight: bold;
+   margin-bottom: 5px;
+ }
+
+ input[type="text"],
+ input[type="number"] {
+   width: 100%;
+   padding: 8px;
+   border: 1px solid #d5006d; 
+   border-radius: 4px;
+   box-sizing: border-box;
+ }
+
+ .btn-custom {
+   padding: 10px 20px;
+   border-radius: 4px;
+   margin-right: 5px;
+ }
+
+ .btn-primary {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+ }
+
+ .btn-success {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+ }
+
+ .btn-warning {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+   color: white;
+ }
+
+        .btn-info {
+             background-color: #e406b4f8; 
+             border-color: #e406b4f8;
+         }
+
+        .btn-danger {
+                 background-color: #e406b4f8;
+                 border-color: #e406b4f8;
+        }
+
+}
+
+ @media only screen and (min-width: 601px) {
+    body {
+   font-family: Arial, sans-serif;
+   background-color: #eba3dbf8;
+   margin: 0;
+   padding: 0;
+ }
+
+ 
+
+ h1 {
+   text-align: center;
+   color: white;
+   font-style: italic; 
+ }
+
+ form {
+   margin-top: 20px;
+ }
+
+ .form-group {
+   margin-bottom: 20px;
+   color: #e406b4f8;
+   font-style: italic;
+ }
+
+ label {
+   display: block;
+   font-weight: bold;
+   margin-bottom: 5px;
+ }
+
+ input[type="text"],
+ input[type="number"] {
+   width: 100%;
+   padding: 8px;
+   border: 1px solid #d5006d; 
+   border-radius: 4px;
+   box-sizing: border-box;}
+ }
+
+ .btn-custom {
+   padding: 10px 20px;
+   border-radius: 4px;
+   margin-right: 5px;
+ }
+
+ .btn-primary {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+ }
+
+ .btn-success {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+ }
+
+ .btn-warning {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+   color: white;
+ }
+
+ .btn-info {
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+ }
+
+ .btn-danger {
+   background-color: #e406b4f8;
+   border-color: #e406b4f8;
+ }
+
+
+
+</style>
+</head>
+<body>
+
+<div class="container">
+ <h1>Inventário Periódico</h1>
+ <form id="inventory-form">
+   <div class="form-group">
+     <label for="material">Material:</label>
+     <input type="text" id="material" name="material" required class="form-control">
+   </div>
+   <div class="form-group">
+     <label for="stock-quantity">Quantidade em Estoque:</label>
+     <input type="number" id="stock-quantity" name="stock-quantity" required class="form-control">
+   </div>
+   <div class="form-group">
+     <label for="real-quantity">Quantidade Real:</label>
+     <input type="number" id="real-quantity" name="real-quantity" required class="form-control">
+   </div>
+   <div class="form-group text-center">
+     <button type="button" class="btn btn-primary btn-custom">Pesquisar</button>
+     <button type="button" class="btn btn-success btn-custom">Inserir</button>
+     <button type="button" class="btn btn-warning btn-custom">Alterar</button>
+     <button type="submit" class="btn btn-info btn-custom">Gravar</button>
+     <button type="button" class="btn btn-danger btn-custom">Cancelar</button>
+   </div>
+ </form>
+</div>
+
+</body>
+</html>
