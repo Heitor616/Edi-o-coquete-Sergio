@@ -65,6 +65,7 @@
  }
 
  .btn-success {
+  display: none;
    background-color: #e406b4f8; 
    border-color: #e406b4f8;
  }
@@ -76,11 +77,13 @@
  }
 
  .btn-info {
+  display: none;
    background-color: #e406b4f8; 
    border-color: #e406b4f8;
  }
 
  .btn-danger {
+  margin-top: 10px;
    background-color: #e406b4f8;
    border-color: #e406b4f8;
  }
@@ -116,15 +119,18 @@
    display: block;
    font-weight: bold;
    margin-bottom: 5px;
+   margin-left: 55px;
  }
 
  input[type="text"],
  input[type="number"] {
    width: 100%;
+   max-width: 400px;
    padding: 8px;
    border: 1px solid #d5006d; 
    border-radius: 4px;
    box-sizing: border-box;
+   margin-left: 55px;
  }
 
  .btn-custom {
@@ -139,6 +145,7 @@
  }
 
  .btn-success {
+  display: none;
    background-color: #e406b4f8; 
    border-color: #e406b4f8;
  }
@@ -149,15 +156,16 @@
    color: white;
  }
 
-        .btn-info {
-             background-color: #e406b4f8; 
-             border-color: #e406b4f8;
-         }
+ .btn-info {
+  display: none;
+   background-color: #e406b4f8; 
+   border-color: #e406b4f8;
+}
 
-        .btn-danger {
-                 background-color: #e406b4f8;
-                 border-color: #e406b4f8;
-        }
+.btn-danger {
+background-color: #e406b4f8;
+border-color: #e406b4f8;
+}
 
 }
 
@@ -191,15 +199,19 @@
    display: block;
    font-weight: bold;
    margin-bottom: 5px;
+   margin-left: 145px;
  }
 
  input[type="text"],
  input[type="number"] {
    width: 100%;
+   max-width: 400px;
    padding: 8px;
    border: 1px solid #d5006d; 
    border-radius: 4px;
-   box-sizing: border-box;}
+   box-sizing: border-box;
+   margin-left: 145px;
+  }
  }
 
  .btn-custom {
@@ -214,6 +226,7 @@
  }
 
  .btn-success {
+  display: none;
    background-color: #e406b4f8; 
    border-color: #e406b4f8;
  }
@@ -225,6 +238,7 @@
  }
 
  .btn-info {
+  display: none;
    background-color: #e406b4f8; 
    border-color: #e406b4f8;
  }
@@ -237,6 +251,15 @@
 
 
 </style>
+<script>
+  $(document).ready(function() {
+        $('#stock-quantity, #real-quantity').on('keypress', function(e) {
+            if (!/[0-9]/.test(String.fromCharCode(e.which)) && e.which !== 8) {
+        e.preventDefault();
+      }
+    });
+  });
+</script>
 </head>
 <body>
 
@@ -257,9 +280,9 @@
    </div>
    <div class="form-group text-center">
      <button type="button" class="btn btn-primary btn-custom">Pesquisar</button>
-     <button type="button" class="btn btn-success btn-custom">Inserir</button>
+     <button type="button" class="btn btn-success btn-custom" disabled>>Inserir</button>
      <button type="button" class="btn btn-warning btn-custom">Alterar</button>
-     <button type="submit" class="btn btn-info btn-custom">Gravar</button>
+     <button type="submit" class="btn btn-info btn-custom" disabled>Gravar</button>
      <button type="button" class="btn btn-danger btn-custom">Cancelar</button>
    </div>
  </form>
