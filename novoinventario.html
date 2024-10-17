@@ -253,11 +253,21 @@ border-color: #e406b4f8;
 </style>
 <script>
   $(document).ready(function() {
-        $('#stock-quantity, #real-quantity').on('keypress', function(e) {
-            if (!/[0-9]/.test(String.fromCharCode(e.which)) && e.which !== 8) {
-        e.preventDefault();
-      }
-    });
+      // Permitir números decimais, ponto ou vírgula
+      $('#stock-quantity, #real-quantity').on('keypress', function(e) {
+          let charCode = e.which ? e.which : e.keyCode;
+          if ((charCode < 48 || charCode > 57) && charCode !== 46 && charCode !== 44 && charCode !== 8) {
+              e.preventDefault();
+          }
+      });
+
+      // Converter vírgula em ponto para uniformidade ao enviar
+      $('#inventory-form').on('submit', function(e) {
+          $('#stock-quantity, #real-quantity').each(function() {
+              let value = $(this).val().replace(',', '.');
+              $(this).val(value);
+          });
+      });
   });
 </script>
 </head>
@@ -272,15 +282,15 @@ border-color: #e406b4f8;
    </div>
    <div class="form-group">
      <label for="stock-quantity">Quantidade em Estoque:</label>
-     <input type="number" id="stock-quantity" name="stock-quantity" required class="form-control">
+     <input type="text" id="stock-quantity" name="stock-quantity" required class="form-control">
    </div>
    <div class="form-group">
      <label for="real-quantity">Quantidade Real:</label>
-     <input type="number" id="real-quantity" name="real-quantity" required class="form-control">
+     <input type="text" id="real-quantity" name="real-quantity" required class="form-control">
    </div>
    <div class="form-group text-center">
      <button type="button" class="btn btn-primary btn-custom">Pesquisar</button>
-     <button type="button" class="btn btn-success btn-custom" disabled>>Inserir</button>
+     <button type="button" class="btn btn-success btn-custom" disabled>Inserir</button>
      <button type="button" class="btn btn-warning btn-custom">Alterar</button>
      <button type="submit" class="btn btn-info btn-custom" disabled>Gravar</button>
      <button type="button" class="btn btn-danger btn-custom">Cancelar</button>
